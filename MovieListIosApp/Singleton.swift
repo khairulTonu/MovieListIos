@@ -6,6 +6,7 @@ import MBProgressHUD
 @objc class Singleton: NSObject {
     
     static let _singletonInstance = Singleton()
+    public static let API_KEY = "5ee467b569f1fcd89492e89e5dddad1b"
     private override init() {
        
     }
