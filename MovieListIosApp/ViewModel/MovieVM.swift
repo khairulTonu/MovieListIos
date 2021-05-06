@@ -10,7 +10,9 @@ class MovieVM:NSObject {
     
     func getMovies(query: String){
         
-        let url = "https://api.themoviedb.org/3/search/movie?api_key=\(Singleton.API_KEY)&query=\(query)"
+        let queryWithoutSpacing = query.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? ""
+        
+        let url = "https://api.themoviedb.org/3/search/movie?api_key=\(Singleton.API_KEY)&query=\(queryWithoutSpacing)"
         
         Service.getMovieList(requestUrl:url,completion: { (response, error) in
             if(error?.isEmpty)!{
